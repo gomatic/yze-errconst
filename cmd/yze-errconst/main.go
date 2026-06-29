@@ -3,8 +3,9 @@
 package main
 
 import (
-	errconst "github.com/gomatic/yze-go-errconst"
 	"golang.org/x/tools/go/analysis/singlechecker"
+
+	errconst "github.com/gomatic/yze-errconst"
 )
 
 // run is the analysis entry point, indirected so the binary's wiring is testable

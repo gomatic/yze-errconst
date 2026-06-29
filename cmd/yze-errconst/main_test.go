@@ -3,10 +3,11 @@ package main
 import (
 	"testing"
 
-	errconst "github.com/gomatic/yze-go-errconst"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/tools/go/analysis"
+
+	errconst "github.com/gomatic/yze-errconst"
 )
 
 func TestMainRunsTheAnalyzer(t *testing.T) {

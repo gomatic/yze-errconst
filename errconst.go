@@ -30,7 +30,6 @@ var Analyzer = &analysis.Analyzer{
 // Registration declares this analyzer to the yze framework.
 var Registration = goyze.Registration{
 	Name:       "errconst",
-	Group:      "go",
 	Categories: []goyze.Category{"errors"},
 	URL:        "https://docs.gomatic.dev/yze/go/errconst",
 	Analyzer:   Analyzer,
