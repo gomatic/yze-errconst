@@ -1,5 +1,5 @@
-// Command yze-go-errconst runs the errconst analyzer as a standalone go/analysis
-// checker (text, -json, and -fix output, and usable as a `go vet -vettool`).
+// Command yze-errconst runs the errconst analyzer as a standalone go/analysis
+// checker (text and -json output, and usable as a `go vet -vettool`).
 package main
 
 import (

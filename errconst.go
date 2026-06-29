@@ -31,7 +31,7 @@ var Analyzer = &analysis.Analyzer{
 var Registration = goyze.Registration{
 	Name:       "errconst",
 	Categories: []goyze.Category{"errors"},
-	URL:        "https://docs.gomatic.dev/yze/go/errconst",
+	URL:        "https://docs.gomatic.dev/yze/errconst",
 	Analyzer:   Analyzer,
 }
 
@@ -61,8 +61,17 @@ func reportErrorf(pass *analysis.Pass, call *ast.CallExpr) {
 	}
 }
 
-// wrapsCause reports whether an fmt.Errorf call wraps a cause with %w. A
-// non-literal format string cannot be judged statically and is assumed to wrap.
+// wrapsCause reports whether an fmt.Errorf call wraps a cause with %w.
+//
+// This is the deliberate v1 rule: the presence of %w in a literal format string
+// is the proxy for "this wraps rather than creates". The convention permits
+// wrapping a sentinel OR an injected cause, and an injected cause is by
+// definition a non-sentinel error value — so the wrapped argument is NOT traced
+// to confirm it resolves to a constant sentinel. Doing so would wrongly flag the
+// explicitly-permitted injected-cause case, and reliable static sentinel-tracing
+// across parameters, locals, and package vars is not feasible here. A non-literal
+// (e.g. const-held or dynamic) format string cannot be judged statically and is
+// assumed to wrap.
 func wrapsCause(call *ast.CallExpr) bool {
 	lit, ok := call.Args[0].(*ast.BasicLit)
 	if !ok {
