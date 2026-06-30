@@ -23,7 +23,9 @@ func wrapLeading(cause error) error {
 
 // noWrap uses fmt.Errorf with no %w and must be flagged.
 func noWrap() error {
-	return fmt.Errorf("plain failure") // want `use a sentinel error constant, or wrap a cause with %w, instead of fmt\.Errorf`
+	return fmt.Errorf(
+		"plain failure",
+	) // want `use a sentinel error constant, or wrap a cause with %w, instead of fmt\.Errorf`
 }
 
 // dynamicFormat uses a non-literal format; it cannot be statically judged and is
