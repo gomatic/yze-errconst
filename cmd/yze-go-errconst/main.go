@@ -1,11 +1,11 @@
-// Command yze-errconst runs the errconst analyzer as a standalone go/analysis
+// Command yze-go-errconst runs the errconst analyzer as a standalone go/analysis
 // checker (text and -json output, and usable as a `go vet -vettool`).
 package main
 
 import (
 	"golang.org/x/tools/go/analysis/singlechecker"
 
-	errconst "github.com/gomatic/yze-errconst"
+	errconst "github.com/gomatic/yze-go-errconst"
 )
 
 // run is the analysis entry point, indirected so the binary's wiring is testable

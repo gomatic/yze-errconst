@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/tools/go/analysis/analysistest"
 
-	errconst "github.com/gomatic/yze-errconst"
+	errconst "github.com/gomatic/yze-go-errconst"
 )
 
 func TestDisallowedErrorConstructionIsReported(t *testing.T) {

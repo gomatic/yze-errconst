@@ -1,4 +1,4 @@
-module github.com/gomatic/yze-errconst
+module github.com/gomatic/yze-go-errconst
 
 go 1.26.4
 

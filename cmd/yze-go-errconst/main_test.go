@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/tools/go/analysis"
 
-	errconst "github.com/gomatic/yze-errconst"
+	errconst "github.com/gomatic/yze-go-errconst"
 )
 
 func TestMainRunsTheAnalyzer(t *testing.T) {
